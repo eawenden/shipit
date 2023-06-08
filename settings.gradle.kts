@@ -1,0 +1,1 @@
+rootProject.name = "net.dpgmedia.ship-it-gamification"

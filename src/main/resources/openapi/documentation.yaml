@@ -1,0 +1,78 @@
+openapi: "3.0.3"
+info:
+  title: "Application API"
+  description: "Application API"
+  version: "1.0.0"
+servers:
+  - url: "http://shipit.esoph.net:9883"
+  - url: "http://0.0.0.0:8080"
+paths:
+  /question/{article-short-id}:
+    get:
+      description: "Get question"
+      parameters:
+        - name: article-short-id
+          in: path
+          required: true
+        - name: brand
+          in: query
+          required: true
+          schema:
+            type: string
+            enum:
+            - "volkskrant"
+            - "trouw"
+            - "parool"
+            - "ad"
+            - "hln"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  question:
+                    type: string
+                  answers:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                        label:
+                          type: string
+                        correct:
+                          type: boolean
+              examples:
+                Example#1:
+                  value: | 
+                    {
+                      "question": "Hoe lang blijft de online examentrainer ExamenKracht toegankelijk voor herkansers?",
+                      "answers": [
+                        {
+                          "id": "A",
+                          "label": "Tot het einde van het schooljaar.",
+                          "correct": false
+                        },
+                        {
+                          "id": "B",
+                          "label": "Gedurende de komende weken.",
+                          "correct": false
+                        },
+                        {
+                          "id": "C",
+                          "label": "Tot de herexamens voorbij zijn.",
+                          "correct": true
+                        },
+                        {
+                          "id": "D",
+                          "label": "Voor onbepaalde tijd.",
+                          "correct": false
+                        }
+                      ]
+                    }
+components:
+  schemas:
