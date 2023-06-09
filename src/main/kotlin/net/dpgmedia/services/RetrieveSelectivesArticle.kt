@@ -31,6 +31,7 @@ object RetrieveSelectivesArticle {
 
     private fun createUrl(shortId: String?, brand: String?): String = when(brand){
         "parool" -> "https://mobile.parool.nl/rest/mobile/article/" + shortId
+        "trouw" -> "https://mobile.trouw.nl/rest/mobile/article/" + shortId
         else -> "https://mobile.volkskrant.nl/rest/mobile/article/" + shortId
     }
 

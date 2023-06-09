@@ -1,6 +1,5 @@
 package net.dpgmedia.plugins
 
-import io.ktor.http.*
 import io.ktor.server.routing.*
 import io.ktor.server.response.*
 import io.ktor.server.application.*
