@@ -48,7 +48,7 @@ object RetrieveQuestion {
             Do it in Dutch.
             Do not include any explanations, only provide a  RFC8259 compliant JSON response  following this format without deviation.
             {
-              "question": "language of original phrase",
+              "question": "the question text",
               "options": [{
                 "id": "the letter associated with the answer",
                 "label": "the answer"
