@@ -8,6 +8,8 @@ import com.aallam.openai.api.http.Timeout
 import com.aallam.openai.api.model.ModelId
 import com.aallam.openai.client.OpenAI
 import io.ktor.util.logging.*
+import kotlinx.serialization.Serializable
+import kotlinx.serialization.json.Json
 import net.dpgmedia.models.Answer
 import net.dpgmedia.models.Question
 import kotlin.time.Duration.Companion.seconds
@@ -19,43 +21,69 @@ object RetrieveQuestion {
         token = openaiKey,
         timeout = Timeout(socket = 60.seconds),
     )
+
+    @Serializable
+    data class OpenAIOption(val id: String, val label: String)
+
+    @Serializable
+    data class OpenAIQuestion(val question: String, val options: Array<OpenAIOption>, val correct_answer: String) {
+        override fun equals(other: Any?): Boolean {
+            if (this === other) return true
+            if (javaClass != other?.javaClass) return false
+
+            other as OpenAIQuestion
+
+            return question == other.question
+        }
+
+        override fun hashCode(): Int {
+            return question.hashCode()
+        }
+    }
+
     @OptIn(BetaOpenAI::class)
     suspend fun getQuestion(articleText: String): Question {
+        val prompt: String = """
+            Create a multiple choice question for the article below.
+            Do it in Dutch.
+            Do not include any explanations, only provide a  RFC8259 compliant JSON response  following this format without deviation.
+            {
+              "question": "language of original phrase",
+              "options": [{
+                "id": "the letter associated with the answer",
+                "label": "the answer"
+              }],
+              "correct_answer": "the letter associated with the correct answer",
+            }
+            The article:
+            $articleText
+        """.trimIndent()
+
         val request = ChatCompletionRequest(
             model = ModelId("gpt-3.5-turbo"),
             messages = listOf(
                 ChatMessage(
                     role = ChatRole.User,
-                    content = "Create a multiple choice question in dutch for the following article and give letter of the correct answer:\n $articleText",
+                    content = prompt,
                 )
             )
         )
 
-        val response = openai.chatCompletion(request).choices.first().message?.content?.split("\n")
+        val rawResponse = openai.chatCompletion(request).choices.first().message?.content
+        logger.info("ChatGPT Raw Response: $rawResponse")
 
-        logger.info("ChatGPT Response: $response")
+        val response = rawResponse?.let { Json.decodeFromString<OpenAIQuestion>(it) }
+        logger.info("ChatGPT Parsed Response: $response")
 
-//        val response = arrayOf(
-//            "Wat biedt Stichting VO-content gratis aan herkansers aan om hen te helpen zich voor te bereiden op het eindexamen?",
-//            "A) Een examentrainer",
-//            "B) Een gratis examen",
-//            "C) Een herkansingsoptie voor een niet-kernvak",
-//            "D) Een extra tijdvak voor herkansingen",
-//            "Antwoord: A) Een examentrainer"
-//        )
-        val correctAnswer = response?.last()?.split(": ")?.get(1)?.first().toString()
-        val answers = response?.drop(1)?.filter { it.length > 1 }?.dropLast(1)?.map {
-            val parts = it.split(". ", ") ")
+        val question = response?.let { Question(
+            question = it.question,
+            answers = it.options.map { option -> Answer(
+                id = option.id,
+                label = option.label,
+                correct = option.id == it.correct_answer
+            )}
+        )}
 
-            logger.info("Answer parts: $parts")
-
-            Answer(
-                id = parts.first(),
-                label = parts.get(1) ?: "",
-                correct = parts.first() == correctAnswer
-            )
-        }
-
-        return Question(question = response?.first() ?: "", answers = answers.orEmpty())
+        return question ?: Question(question = "", answers = emptyList())
     }
 }
