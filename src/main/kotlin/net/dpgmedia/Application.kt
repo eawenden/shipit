@@ -3,6 +3,7 @@ package net.dpgmedia
 import io.ktor.server.application.*
 import io.ktor.server.engine.*
 import io.ktor.server.netty.*
+import net.dpgmedia.dao.DatabaseFactory
 import net.dpgmedia.plugins.*
 
 fun main() {
@@ -11,6 +12,7 @@ fun main() {
 }
 
 fun Application.module() {
+    DatabaseFactory.init()
     configureSerialization()
     configureHTTP()
     configureRouting()
