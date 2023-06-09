@@ -74,5 +74,70 @@ paths:
                         }
                       ]
                     }
+  /leaderboard:
+    get:
+      description: "Get leaderboard"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    userId:
+                      type: string
+                    userName:
+                      type: string
+                    points:
+                      type: number
+              examples:
+                Example#1:
+                  value: |
+                    [
+                      {
+                        "userId": "1234",
+                        "userName": "Jan",
+                        "points": 343
+                      },
+                      {
+                        "userId": "5678",
+                        "userName": "Els",
+                        "points": 543
+                      }
+                    ]
+    post:
+      description: "Register scores"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                userId:
+                  type: string
+                  required: true
+                points:
+                  type: number
+                  required: true
+      responses:
+        "200":
+          description: "OK"
+  /leaderboard/{userId}/{userName}:
+    put:
+      description: "Set userName"
+      parameters:
+        - name: userId
+          in: path
+          required: true
+        - name: userName
+          in: path
+          required: true
+      responses:
+        "200":
+          description: "OK"
 components:
   schemas:

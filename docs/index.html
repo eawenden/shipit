@@ -706,6 +706,15 @@
             <li class="nav-fixed nav-header active" data-group="_"><a href="#api-_">API Summary</a></li>
 
                   <li class="nav-header" data-group="Default"><a href="#api-Default">API Methods - Default</a></li>
+                    <li data-group="Default" data-name="leaderboardGet" class="">
+                      <a href="#api-Default-leaderboardGet">leaderboardGet</a>
+                    </li>
+                    <li data-group="Default" data-name="leaderboardPost" class="">
+                      <a href="#api-Default-leaderboardPost">leaderboardPost</a>
+                    </li>
+                    <li data-group="Default" data-name="leaderboardUserIdUserNamePut" class="">
+                      <a href="#api-Default-leaderboardUserIdUserNamePut">leaderboardUserIdUserNamePut</a>
+                    </li>
                     <li data-group="Default" data-name="questionArticleShortIdGet" class="">
                       <a href="#api-Default-questionArticleShortIdGet">questionArticleShortIdGet</a>
                     </li>
@@ -730,6 +739,815 @@
         <div id="sections">
                 <section id="api-Default">
                   <h1>Default</h1>
+                    <div id="api-Default-leaderboardGet">
+                      <article id="api-Default-leaderboardGet-0" data-group="User" data-name="leaderboardGet" data-version="0">
+                        <div class="pull-left">
+                          <h1>leaderboardGet</h1>
+                          <p></p>
+                        </div>
+                        <div class="pull-right"></div>
+                        <div class="clearfix"></div>
+                        <p></p>
+                        <p class="marked">Get leaderboard</p>
+                        <p></p>
+                        <br />
+                        <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/leaderboard</span></code></pre>
+                        <p>
+                          <h3>Usage and SDK Samples</h3>
+                        </p>
+                        <ul class="nav nav-tabs nav-tabs-examples">
+                          <li class="active"><a href="#examples-Default-leaderboardGet-0-curl">Curl</a></li>
+                          <li class=""><a href="#examples-Default-leaderboardGet-0-java">Java</a></li>
+                          <li class=""><a href="#examples-Default-leaderboardGet-0-android">Android</a></li>
+                          <!--<li class=""><a href="#examples-Default-leaderboardGet-0-groovy">Groovy</a></li>-->
+                          <li class=""><a href="#examples-Default-leaderboardGet-0-objc">Obj-C</a></li>
+                          <li class=""><a href="#examples-Default-leaderboardGet-0-javascript">JavaScript</a></li>
+                          <!--<li class=""><a href="#examples-Default-leaderboardGet-0-angular">Angular</a></li>-->
+                          <li class=""><a href="#examples-Default-leaderboardGet-0-csharp">C#</a></li>
+                          <li class=""><a href="#examples-Default-leaderboardGet-0-php">PHP</a></li>
+                          <li class=""><a href="#examples-Default-leaderboardGet-0-perl">Perl</a></li>
+                          <li class=""><a href="#examples-Default-leaderboardGet-0-python">Python</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                          <div class="tab-pane active" id="examples-Default-leaderboardGet-0-curl">
+                           <pre class="prettyprint"><code class="language-bsh">curl -X GET\
+-H "Accept: application/json"\
+"http://shipit.esoph.net:9883/leaderboard"</code></pre>
+                          </div>
+                          <div class="tab-pane" id="examples-Default-leaderboardGet-0-java">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
+import io.swagger.client.auth.*;
+import io.swagger.client.model.*;
+import io.swagger.client.api.DefaultApi;
+
+import java.io.File;
+import java.util.*;
+
+public class DefaultApiExample {
+
+    public static void main(String[] args) {
+        
+        DefaultApi apiInstance = new DefaultApi();
+        try {
+            array[Object] result = apiInstance.leaderboardGet();
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling DefaultApi#leaderboardGet");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-Default-leaderboardGet-0-android">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.api.DefaultApi;
+
+public class DefaultApiExample {
+
+    public static void main(String[] args) {
+        DefaultApi apiInstance = new DefaultApi();
+        try {
+            array[Object] result = apiInstance.leaderboardGet();
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling DefaultApi#leaderboardGet");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+  <!--
+  <div class="tab-pane" id="examples-Default-leaderboardGet-0-groovy">
+  <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+  </div> -->
+                            <div class="tab-pane" id="examples-Default-leaderboardGet-0-objc">
+                              <pre class="prettyprint"><code class="language-cpp">
+DefaultApi *apiInstance = [[DefaultApi alloc] init];
+
+[apiInstance leaderboardGetWithCompletionHandler: 
+              ^(array[Object] output, NSError* error) {
+                            if (output) {
+                                NSLog(@"%@", output);
+                            }
+                            if (error) {
+                                NSLog(@"Error: %@", error);
+                            }
+                        }];
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Default-leaderboardGet-0-javascript">
+                              <pre class="prettyprint"><code class="language-js">var ApplicationApi = require('application_api');
+
+var api = new ApplicationApi.DefaultApi()
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+};
+api.leaderboardGet(callback);
+</code></pre>
+                            </div>
+
+                            <!--<div class="tab-pane" id="examples-Default-leaderboardGet-0-angular">
+              <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+            </div>-->
+                            <div class="tab-pane" id="examples-Default-leaderboardGet-0-csharp">
+                              <pre class="prettyprint"><code class="language-cs">using System;
+using System.Diagnostics;
+using IO.Swagger.Api;
+using IO.Swagger.Client;
+using IO.Swagger.Model;
+
+namespace Example
+{
+    public class leaderboardGetExample
+    {
+        public void main()
+        {
+
+            var apiInstance = new DefaultApi();
+
+            try
+            {
+                array[Object] result = apiInstance.leaderboardGet();
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling DefaultApi.leaderboardGet: " + e.Message );
+            }
+        }
+    }
+}
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Default-leaderboardGet-0-php">
+                              <pre class="prettyprint"><code class="language-php"><&#63;php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$api_instance = new Swagger\Client\ApiDefaultApi();
+
+try {
+    $result = $api_instance->leaderboardGet();
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling DefaultApi->leaderboardGet: ', $e->getMessage(), PHP_EOL;
+}
+?></code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Default-leaderboardGet-0-perl">
+                              <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
+use WWW::SwaggerClient::Configuration;
+use WWW::SwaggerClient::DefaultApi;
+
+my $api_instance = WWW::SwaggerClient::DefaultApi->new();
+
+eval { 
+    my $result = $api_instance->leaderboardGet();
+    print Dumper($result);
+};
+if ($@) {
+    warn "Exception when calling DefaultApi->leaderboardGet: $@\n";
+}</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Default-leaderboardGet-0-python">
+                              <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
+import time
+import swagger_client
+from swagger_client.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = swagger_client.DefaultApi()
+
+try: 
+    api_response = api_instance.leaderboard_get()
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling DefaultApi->leaderboardGet: %s\n" % e)</code></pre>
+                            </div>
+                          </div>
+
+                          <h2>Parameters</h2>
+
+
+
+
+
+
+                          <h2>Responses</h2>
+                            <h3> Status: 200 - OK </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                                <li class="active">
+                                  <a data-toggle="tab" href="#responses-leaderboardGet-200-schema">Schema</a>
+                                </li>
+
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                                <div class="tab-pane active" id="responses-leaderboardGet-200-schema">
+                                  <div id='responses-leaderboardGet-200-schema-200' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+                                    <script>
+                                      $(document).ready(function() {
+                                        var schemaWrapper = {
+  "description" : "OK",
+  "content" : {
+    "application/json" : {
+      "schema" : {
+        "type" : "array",
+        "items" : {
+          "type" : "object",
+          "properties" : {
+            "userId" : {
+              "type" : "string"
+            },
+            "userName" : {
+              "type" : "string"
+            },
+            "points" : {
+              "type" : "number"
+            }
+          }
+        },
+        "x-content-type" : "application/json"
+      },
+      "examples" : {
+        "Example#1" : {
+          "value" : "[\n  {\n    \"userId\": \"1234\",\n    \"userName\": \"Jan\",\n    \"points\": 343\n  },\n  {\n    \"userId\": \"5678\",\n    \"userName\": \"Els\",\n    \"points\": 543\n  }\n]\n"
+        }
+      }
+    }
+  }
+};
+                                        var schema = schemaWrapper.content["application/json"].schema;
+                                        if (schema.$ref != null) {
+                                          schema = defsParser.$refs.get(schema.$ref);
+                                        } else {
+                                          schemaWrapper.components = {};
+                                          schemaWrapper.components.schemas = Object.assign({}, defs);
+                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                            console.log(err);
+                                          });
+                                        }
+
+                                        //console.log(JSON.stringify(schema));
+                                        var view = new JSONSchemaView(schema, 3);
+                                        $('#responses-leaderboardGet-200-schema-data').val(stringify(schema));
+                                        var result = $('#responses-leaderboardGet-200-schema-200');
+                                        result.empty();
+                                        result.append(view.render());
+                                      });
+                                    </script>
+                                  </div>
+                                  <input id='responses-leaderboardGet-200-schema-data' type='hidden' value=''></input>
+                                </div>
+                            </div>
+
+                        </article>
+                      </div>
+                      <hr>
+                    <div id="api-Default-leaderboardPost">
+                      <article id="api-Default-leaderboardPost-0" data-group="User" data-name="leaderboardPost" data-version="0">
+                        <div class="pull-left">
+                          <h1>leaderboardPost</h1>
+                          <p></p>
+                        </div>
+                        <div class="pull-right"></div>
+                        <div class="clearfix"></div>
+                        <p></p>
+                        <p class="marked">Register scores</p>
+                        <p></p>
+                        <br />
+                        <pre class="prettyprint language-html prettyprinted" data-type="post"><code><span class="pln">/leaderboard</span></code></pre>
+                        <p>
+                          <h3>Usage and SDK Samples</h3>
+                        </p>
+                        <ul class="nav nav-tabs nav-tabs-examples">
+                          <li class="active"><a href="#examples-Default-leaderboardPost-0-curl">Curl</a></li>
+                          <li class=""><a href="#examples-Default-leaderboardPost-0-java">Java</a></li>
+                          <li class=""><a href="#examples-Default-leaderboardPost-0-android">Android</a></li>
+                          <!--<li class=""><a href="#examples-Default-leaderboardPost-0-groovy">Groovy</a></li>-->
+                          <li class=""><a href="#examples-Default-leaderboardPost-0-objc">Obj-C</a></li>
+                          <li class=""><a href="#examples-Default-leaderboardPost-0-javascript">JavaScript</a></li>
+                          <!--<li class=""><a href="#examples-Default-leaderboardPost-0-angular">Angular</a></li>-->
+                          <li class=""><a href="#examples-Default-leaderboardPost-0-csharp">C#</a></li>
+                          <li class=""><a href="#examples-Default-leaderboardPost-0-php">PHP</a></li>
+                          <li class=""><a href="#examples-Default-leaderboardPost-0-perl">Perl</a></li>
+                          <li class=""><a href="#examples-Default-leaderboardPost-0-python">Python</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                          <div class="tab-pane active" id="examples-Default-leaderboardPost-0-curl">
+                           <pre class="prettyprint"><code class="language-bsh">curl -X POST\
+-H "Content-Type: application/json"\
+"http://shipit.esoph.net:9883/leaderboard"</code></pre>
+                          </div>
+                          <div class="tab-pane" id="examples-Default-leaderboardPost-0-java">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
+import io.swagger.client.auth.*;
+import io.swagger.client.model.*;
+import io.swagger.client.api.DefaultApi;
+
+import java.io.File;
+import java.util.*;
+
+public class DefaultApiExample {
+
+    public static void main(String[] args) {
+        
+        DefaultApi apiInstance = new DefaultApi();
+        Object body = ; // Object | 
+        try {
+            apiInstance.leaderboardPost(body);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling DefaultApi#leaderboardPost");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-Default-leaderboardPost-0-android">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.api.DefaultApi;
+
+public class DefaultApiExample {
+
+    public static void main(String[] args) {
+        DefaultApi apiInstance = new DefaultApi();
+        Object body = ; // Object | 
+        try {
+            apiInstance.leaderboardPost(body);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling DefaultApi#leaderboardPost");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+  <!--
+  <div class="tab-pane" id="examples-Default-leaderboardPost-0-groovy">
+  <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+  </div> -->
+                            <div class="tab-pane" id="examples-Default-leaderboardPost-0-objc">
+                              <pre class="prettyprint"><code class="language-cpp">Object *body = ; // 
+
+DefaultApi *apiInstance = [[DefaultApi alloc] init];
+
+[apiInstance leaderboardPostWith:body
+              completionHandler: ^(NSError* error) {
+                            if (error) {
+                                NSLog(@"Error: %@", error);
+                            }
+                        }];
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Default-leaderboardPost-0-javascript">
+                              <pre class="prettyprint"><code class="language-js">var ApplicationApi = require('application_api');
+
+var api = new ApplicationApi.DefaultApi()
+var body = ; // {{Object}} 
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully.');
+  }
+};
+api.leaderboardPost(body, callback);
+</code></pre>
+                            </div>
+
+                            <!--<div class="tab-pane" id="examples-Default-leaderboardPost-0-angular">
+              <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+            </div>-->
+                            <div class="tab-pane" id="examples-Default-leaderboardPost-0-csharp">
+                              <pre class="prettyprint"><code class="language-cs">using System;
+using System.Diagnostics;
+using IO.Swagger.Api;
+using IO.Swagger.Client;
+using IO.Swagger.Model;
+
+namespace Example
+{
+    public class leaderboardPostExample
+    {
+        public void main()
+        {
+
+            var apiInstance = new DefaultApi();
+            var body = new Object(); // Object | 
+
+            try
+            {
+                apiInstance.leaderboardPost(body);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling DefaultApi.leaderboardPost: " + e.Message );
+            }
+        }
+    }
+}
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Default-leaderboardPost-0-php">
+                              <pre class="prettyprint"><code class="language-php"><&#63;php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$api_instance = new Swagger\Client\ApiDefaultApi();
+$body = ; // Object | 
+
+try {
+    $api_instance->leaderboardPost($body);
+} catch (Exception $e) {
+    echo 'Exception when calling DefaultApi->leaderboardPost: ', $e->getMessage(), PHP_EOL;
+}
+?></code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Default-leaderboardPost-0-perl">
+                              <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
+use WWW::SwaggerClient::Configuration;
+use WWW::SwaggerClient::DefaultApi;
+
+my $api_instance = WWW::SwaggerClient::DefaultApi->new();
+my $body = WWW::SwaggerClient::Object::Object->new(); # Object | 
+
+eval { 
+    $api_instance->leaderboardPost(body => $body);
+};
+if ($@) {
+    warn "Exception when calling DefaultApi->leaderboardPost: $@\n";
+}</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Default-leaderboardPost-0-python">
+                              <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
+import time
+import swagger_client
+from swagger_client.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = swagger_client.DefaultApi()
+body =  # Object | 
+
+try: 
+    api_instance.leaderboard_post(body)
+except ApiException as e:
+    print("Exception when calling DefaultApi->leaderboardPost: %s\n" % e)</code></pre>
+                            </div>
+                          </div>
+
+                          <h2>Parameters</h2>
+
+
+
+                            <div class="methodsubtabletitle">Body parameters</div>
+                            <table id="methodsubtable">
+                              <tr>
+                                <th width="150px">Name</th>
+                                <th>Description</th>
+                              </tr>
+                                <tr><td style="width:150px;">body <span style="color:red;">*</span></td>
+                                <td>
+                                
+                                
+                                <script>
+                                $(document).ready(function() {
+                                  var schemaWrapper = {
+  "content" : {
+    "application/json" : {
+      "schema" : {
+        "type" : "object",
+        "properties" : {
+          "userId" : {
+            "type" : "string"
+          },
+          "points" : {
+            "type" : "number"
+          }
+        }
+      }
+    }
+  },
+  "required" : true
+};
+                                  var schema = schemaWrapper.content["application/json"].schema;
+                                  if (schema.$ref != null) {
+                                    schema = defsParser.$refs.get(schema.$ref);
+                                  } else {
+                                    schemaWrapper.components = {};
+                                    schemaWrapper.components.schemas = Object.assign({}, defs);
+                                    $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                      console.log(err);
+                                    });
+                                  }
+                                
+                                  var view = new JSONSchemaView(schema,2,{isBodyParam: true});
+                                  var result = $('#d2e199_leaderboardPost_body');
+                                  result.empty();
+                                  result.append(view.render());
+                                });
+                                </script>
+                                <div id="d2e199_leaderboardPost_body"></div>
+                                </td>
+                                </tr>
+                            </table>
+
+
+
+                          <h2>Responses</h2>
+                            <h3> Status: 200 - OK </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                            </div>
+
+                        </article>
+                      </div>
+                      <hr>
+                    <div id="api-Default-leaderboardUserIdUserNamePut">
+                      <article id="api-Default-leaderboardUserIdUserNamePut-0" data-group="User" data-name="leaderboardUserIdUserNamePut" data-version="0">
+                        <div class="pull-left">
+                          <h1>leaderboardUserIdUserNamePut</h1>
+                          <p></p>
+                        </div>
+                        <div class="pull-right"></div>
+                        <div class="clearfix"></div>
+                        <p></p>
+                        <p class="marked">Set userName</p>
+                        <p></p>
+                        <br />
+                        <pre class="prettyprint language-html prettyprinted" data-type="put"><code><span class="pln">/leaderboard/{userId}/{userName}</span></code></pre>
+                        <p>
+                          <h3>Usage and SDK Samples</h3>
+                        </p>
+                        <ul class="nav nav-tabs nav-tabs-examples">
+                          <li class="active"><a href="#examples-Default-leaderboardUserIdUserNamePut-0-curl">Curl</a></li>
+                          <li class=""><a href="#examples-Default-leaderboardUserIdUserNamePut-0-java">Java</a></li>
+                          <li class=""><a href="#examples-Default-leaderboardUserIdUserNamePut-0-android">Android</a></li>
+                          <!--<li class=""><a href="#examples-Default-leaderboardUserIdUserNamePut-0-groovy">Groovy</a></li>-->
+                          <li class=""><a href="#examples-Default-leaderboardUserIdUserNamePut-0-objc">Obj-C</a></li>
+                          <li class=""><a href="#examples-Default-leaderboardUserIdUserNamePut-0-javascript">JavaScript</a></li>
+                          <!--<li class=""><a href="#examples-Default-leaderboardUserIdUserNamePut-0-angular">Angular</a></li>-->
+                          <li class=""><a href="#examples-Default-leaderboardUserIdUserNamePut-0-csharp">C#</a></li>
+                          <li class=""><a href="#examples-Default-leaderboardUserIdUserNamePut-0-php">PHP</a></li>
+                          <li class=""><a href="#examples-Default-leaderboardUserIdUserNamePut-0-perl">Perl</a></li>
+                          <li class=""><a href="#examples-Default-leaderboardUserIdUserNamePut-0-python">Python</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                          <div class="tab-pane active" id="examples-Default-leaderboardUserIdUserNamePut-0-curl">
+                           <pre class="prettyprint"><code class="language-bsh">curl -X PUT\
+"http://shipit.esoph.net:9883/leaderboard/{userId}/{userName}"</code></pre>
+                          </div>
+                          <div class="tab-pane" id="examples-Default-leaderboardUserIdUserNamePut-0-java">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
+import io.swagger.client.auth.*;
+import io.swagger.client.model.*;
+import io.swagger.client.api.DefaultApi;
+
+import java.io.File;
+import java.util.*;
+
+public class DefaultApiExample {
+
+    public static void main(String[] args) {
+        
+        DefaultApi apiInstance = new DefaultApi();
+          = ; //  | 
+          = ; //  | 
+        try {
+            apiInstance.leaderboardUserIdUserNamePut(, );
+        } catch (ApiException e) {
+            System.err.println("Exception when calling DefaultApi#leaderboardUserIdUserNamePut");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-Default-leaderboardUserIdUserNamePut-0-android">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.api.DefaultApi;
+
+public class DefaultApiExample {
+
+    public static void main(String[] args) {
+        DefaultApi apiInstance = new DefaultApi();
+          = ; //  | 
+          = ; //  | 
+        try {
+            apiInstance.leaderboardUserIdUserNamePut(, );
+        } catch (ApiException e) {
+            System.err.println("Exception when calling DefaultApi#leaderboardUserIdUserNamePut");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+  <!--
+  <div class="tab-pane" id="examples-Default-leaderboardUserIdUserNamePut-0-groovy">
+  <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+  </div> -->
+                            <div class="tab-pane" id="examples-Default-leaderboardUserIdUserNamePut-0-objc">
+                              <pre class="prettyprint"><code class="language-cpp"> * = ; // 
+ * = ; // 
+
+DefaultApi *apiInstance = [[DefaultApi alloc] init];
+
+[apiInstance leaderboardUserIdUserNamePutWith:
+    :
+              completionHandler: ^(NSError* error) {
+                            if (error) {
+                                NSLog(@"Error: %@", error);
+                            }
+                        }];
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Default-leaderboardUserIdUserNamePut-0-javascript">
+                              <pre class="prettyprint"><code class="language-js">var ApplicationApi = require('application_api');
+
+var api = new ApplicationApi.DefaultApi()
+var  = ; // {{}} 
+var  = ; // {{}} 
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully.');
+  }
+};
+api.leaderboardUserIdUserNamePut(, , callback);
+</code></pre>
+                            </div>
+
+                            <!--<div class="tab-pane" id="examples-Default-leaderboardUserIdUserNamePut-0-angular">
+              <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+            </div>-->
+                            <div class="tab-pane" id="examples-Default-leaderboardUserIdUserNamePut-0-csharp">
+                              <pre class="prettyprint"><code class="language-cs">using System;
+using System.Diagnostics;
+using IO.Swagger.Api;
+using IO.Swagger.Client;
+using IO.Swagger.Model;
+
+namespace Example
+{
+    public class leaderboardUserIdUserNamePutExample
+    {
+        public void main()
+        {
+
+            var apiInstance = new DefaultApi();
+            var  = new (); //  | 
+            var  = new (); //  | 
+
+            try
+            {
+                apiInstance.leaderboardUserIdUserNamePut(, );
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling DefaultApi.leaderboardUserIdUserNamePut: " + e.Message );
+            }
+        }
+    }
+}
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Default-leaderboardUserIdUserNamePut-0-php">
+                              <pre class="prettyprint"><code class="language-php"><&#63;php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$api_instance = new Swagger\Client\ApiDefaultApi();
+$ = ; //  | 
+$ = ; //  | 
+
+try {
+    $api_instance->leaderboardUserIdUserNamePut($, $);
+} catch (Exception $e) {
+    echo 'Exception when calling DefaultApi->leaderboardUserIdUserNamePut: ', $e->getMessage(), PHP_EOL;
+}
+?></code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Default-leaderboardUserIdUserNamePut-0-perl">
+                              <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
+use WWW::SwaggerClient::Configuration;
+use WWW::SwaggerClient::DefaultApi;
+
+my $api_instance = WWW::SwaggerClient::DefaultApi->new();
+my $ = ; #  | 
+my $ = ; #  | 
+
+eval { 
+    $api_instance->leaderboardUserIdUserNamePut( => $,  => $);
+};
+if ($@) {
+    warn "Exception when calling DefaultApi->leaderboardUserIdUserNamePut: $@\n";
+}</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Default-leaderboardUserIdUserNamePut-0-python">
+                              <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
+import time
+import swagger_client
+from swagger_client.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = swagger_client.DefaultApi()
+ =  #  | 
+ =  #  | 
+
+try: 
+    api_instance.leaderboard_user_id_user_name_put(, )
+except ApiException as e:
+    print("Exception when calling DefaultApi->leaderboardUserIdUserNamePut: %s\n" % e)</code></pre>
+                            </div>
+                          </div>
+
+                          <h2>Parameters</h2>
+
+                            <div class="methodsubtabletitle">Path parameters</div>
+                            <table id="methodsubtable">
+                                <tr>
+                                  <th width="150px">Name</th>
+                                  <th>Description</th>
+                                </tr>
+                                  <tr><td style="width:150px;">userId*</td>
+                                  <td>
+                                  
+                                  
+                                      <div id="d2e199_leaderboardUserIdUserNamePut_">
+                                          <div class="json-schema-view">
+                                              <div class="primitive">
+                                                  <span class="type">
+                                                      
+                                                  </span>
+                                  
+                                              </div>
+                                                  <div class="inner required">
+                                                      Required
+                                                  </div>
+                                          </div>
+                                      </div>
+                                  </td>
+                                  </tr>
+                                  <tr><td style="width:150px;">userName*</td>
+                                  <td>
+                                  
+                                  
+                                      <div id="d2e199_leaderboardUserIdUserNamePut_">
+                                          <div class="json-schema-view">
+                                              <div class="primitive">
+                                                  <span class="type">
+                                                      
+                                                  </span>
+                                  
+                                              </div>
+                                                  <div class="inner required">
+                                                      Required
+                                                  </div>
+                                          </div>
+                                      </div>
+                                  </td>
+                                  </tr>
+                            </table>
+
+
+
+
+
+                          <h2>Responses</h2>
+                            <h3> Status: 200 - OK </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                            </div>
+
+                        </article>
+                      </div>
+                      <hr>
                     <div id="api-Default-questionArticleShortIdGet">
                       <article id="api-Default-questionArticleShortIdGet-0" data-group="User" data-name="questionArticleShortIdGet" data-version="0">
                         <div class="pull-left">
